@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הרשם</title>
+    <link href="./home.css" rel="stylesheet" />
+</head>
+<body dir="rtl">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./home.html">דף הבית</a></li>
+                <li><a href="./cart.html">סל קניות</a></li>
+                <li><a href="register.html">הרשם</a></li>
+                <li><a href="./cont.html">התחבר</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="register">
+            <h2>הרשם</h2>
+            <form id="registerForm">
+                <label for="name">שם:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">מייל:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="password">סיסמא:</label>
+                <input type="password" id="password" name="password" required><br>
+
+                <label for="phone">טלפון:</label>
+                <input type="tel" id="phone" name="phone" required><br>
+
+                <button type="submit " id="submit">שמור</button>
+            </form>
+            <p id="successMessage" style="display:none; color: green;">נרשמת בהצלחה!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 iRobot ישראל. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

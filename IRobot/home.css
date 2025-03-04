@@ -1,0 +1,395 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background:  #74a13d;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #f0a500;
+}
+
+/* Hero section styles */
+.hero {
+    text-align: center;
+    padding: 2rem 0;
+    background: #e3f7d6;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Products section styles */
+.products {
+    padding: 2rem;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #74a13d;
+}
+
+.product-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-item {
+    background: #fff;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    text-align: center;
+    width: 200px;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.product-item h3 {
+    margin-bottom: 0.5rem;
+    color: #74a13d;
+}
+
+.product-item p {
+    color: #555;
+}
+
+.product-item button {
+    background:  #74a13d;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.product-item button:hover {
+    background: #88e751;
+}
+
+.productInfo{
+    text-align: center;
+}
+/* Contact section styles */
+.contact {
+    padding: 2rem;
+    background:#e3f7d6;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #74a13d;
+    margin-bottom: 1rem;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact li {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.register {
+    padding: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.register h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color:  #74a13d;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register label {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.register input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.register button {
+    background:  #74a13d;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 4px;
+}
+
+.register button:hover {
+    background: #88e751;
+}
+
+#successMessage {
+    text-align: center;
+    margin-top: 1rem;
+    color: green;
+}
+
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background:  #74a13d;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+#use_name{
+    text-align: left;
+}
+
+/* Register section styles */
+.register {
+    padding: 2rem;
+    max-width: 400px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.register h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #74a13d;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+}
+
+.register label {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.register input {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.register button {
+    background:  #74a13d;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+    border-radius: 4px;
+}
+
+.register button:hover {
+    background: #88e751;
+}
+
+#successMessage {
+    text-align: center;
+    margin-top: 1rem;
+    color: green;
+}
+
+
+/* מה שאין לי בדף הCSS: */
+
+main {
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 200px;
+    text-align: center;
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.product-card h3 {
+    font-size: 1.1em;
+    margin: 10px 0;
+}
+
+.product-card p {
+    color: #555;
+}
+
+.product-card button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    width: 100%;
+    border-top: 1px solid #ddd;
+}
+
+.product-card button:hover {
+    background: #575757;
+}
+
+.product-card .add-to-cart-button {
+    background: #28a745;
+    margin-top: 5px;
+}
+
+.product-card .add-to-cart-button:hover {
+    background: #218838;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    max-width: 50px;
+    height: auto;
+}
+
+.cart-item h3 {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.cart-item button {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.cart-item button:hover {
+    background: #575757;
+}
+
+.discount {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.discount label {
+    flex: 1;
+}
+
+.discount input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    flex: 2;
+}
+
+.discount button {
+    padding: 5px 10px;
+    background: #74a13d;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.discount button:hover {
+    background: #74a13d;
+}
+
+#checkoutButton {
+    background:  #74a13d;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+#checkoutButton:hover {
+    background:  #88e751;
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מוצרים</title>
+    <link href="./home.css" rel="stylesheet" />
+</head>
+<body dir="rtl">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./home.html">דף הבית</a></li>
+                <li><a href="./cart.html">סל קניות</a></li>
+                <li><a href="register.html">הרשם</a></li>
+                <li><a href="./cont.html">התחבר</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="productGrid"></div>
+    <button id="sortByName">מיון לפי שם</button>
+    <button id="sortByPrice">מיון לפי מחיר</button>
+ <footer>
+        <p>&copy; 2024 iRobot ישראל. כל הזכויות שמורות.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = [
+                // כאן נמצא מערך המוצרים שלך כפי שהגדרת קודם
+            ];
+
+            const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            const productGrid = document.getElementById('productGrid');
+
+            // פונקציה להוספת מוצרים לעגלת הקניות
+            function addToCart(card) {
+                const existingItem = cart.find(item => item.name === card.name);
+                const priceNumber = parseFloat(card.price.replace(/[^0-9.-]+/g, ""));
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ ...card, quantity: 1, price: priceNumber });
+                }
+                sessionStorage.setItem('cart', JSON.stringify(cart));
+                console.log("מוצר נוסף לעגלה:", card);
+                console.log("העגלה הנוכחית:", cart);
+            }
+
+            // פונקציה להצגת המוצרים
+            function displayCards(cardsToDisplay) {
+                productGrid.innerHTML = '';
+                cardsToDisplay.forEach(card => {
+                    const cardElement = document.createElement('div');
+                    cardElement.classList.add('product-item');
+
+                    cardElement.innerHTML = `
+                        <img src="${card.src}" alt="${card.name}">
+                        <h3>${card.name}</h3>
+                        <p> ${card.price}</p>
+                        <button class="add-thinks" onclick="location.href='${card.detailsPage}'">עוד פרטים</button>
+                        <button class="add-to-cart">הוסף לעגלה</button>
+                    `;
+                    productGrid.appendChild(cardElement);
+
+                    const detailsButton = cardElement.querySelector('.add-thinks');
+                    detailsButton.addEventListener('click', function() {
+                        sessionStorage.setItem('productDetails', JSON.stringify(card));
+                    });
+
+                    const addToCartButton = cardElement.querySelector('.add-to-cart');
+                    addToCartButton.addEventListener('click', function() {
+                        addToCart(card);
+                    });
+                });
+            }
+
+            // פונקציה למיון המוצרים
+            function sortCards(criteria) {
+                let sortedCards;
+                if (criteria === 'name') {
+                    sortedCards = [...cards].sort((a, b) => a.name.localeCompare(b.name));
+                } else if (criteria === 'price') {
+                    sortedCards = [...cards].sort((a, b) => parseFloat(a.price.replace(/[^0-9.-]+/g, "")) - parseFloat(b.price.replace(/[^0-9.-]+/g, "")));
+                }
+                displayCards(sortedCards);
+            }
+
+            // הצגת המוצרים בתחילת הטעינה
+            displayCards(cards);
+
+            // האזנה ללחיצות על כפתורי המיון
+            document.getElementById('sortByName').addEventListener('click', function() {
+                sortCards('name');
+            });
+
+            document.getElementById('sortByPrice').addEventListener('click', function() {
+                sortCards('price');
+            });
+        });
+    </script>
+      <script src="javascript.js"></script>
+</body>
+</html>

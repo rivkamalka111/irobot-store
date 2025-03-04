@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פרטי מוצר</title>
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body dir="rtl">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./home.html">דף הבית</a></li>
+                <li><a href="./cart.html">סל קניות</a></li>
+                <li><a href="register.html">הרשם</a></li>
+                <li><a href="./cont.html">התחבר</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="product-details">
+            <h2>פרטי מוצר</h2>
+            <div id="productInfo">
+                <!-- פרטים נוספים כאן -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 iRobot ישראל. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script>
+        //בדיקה אם יש פרטי מוצר זמינים
+       document.addEventListener('DOMContentLoaded', function() {
+    const productInfo = document.getElementById('productInfo');
+    const productDetails = JSON.parse(sessionStorage.getItem('productDetails'));
+
+    if (productDetails) {
+        productInfo.innerHTML = `
+            <img src="${productDetails.src}" alt="${productDetails.name}" style="max-width: 300px; height: auto;">
+            <h3>${productDetails.name}</h3>
+            <p>מחיר: ${productDetails.price}</p>
+            <p>p: ${productDetails.p}</p>
+        `;
+    } else {
+        productInfo.innerHTML = '<p>אין פרטי מוצר זמינים.</p>';
+    }
+        });
+    </script>
+</body>
+</html>

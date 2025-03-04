@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סיום קניה</title>
+    <link href="./home.css" rel="stylesheet" />
+    <script src="./javascript.js"></script>
+</body>
+</head>
+<body dir="rtl">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./home.html">דף הבית</a></li>
+                <li><a href="./cart.html">סל קניות</a></li>
+                <li><a href="register.html">הרשם</a></li>
+                <li><a href="./cont.html">התחבר</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="checkout">
+            <h2>סיום קניה</h2>
+            <p id="userName"></p>
+            <p id="orderDetails"></p>
+            <p>קנייתך בוצעה בהצלחה. תודה!</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 iRobot ישראל. כל הזכויות שמורות.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const orderDetailsElement = document.getElementById('orderDetails');
+            const name = sessionStorage.getItem('name');
+            const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+            const discount = parseInt(sessionStorage.getItem('discount'), 10) || 0;
+            let totalPrice = 0;
+
+            cart.forEach(item => {
+                totalPrice += item.price * item.quantity;
+            });
+
+            const finalPrice = totalPrice - discount;
+            // פונקציה שבודקת אם הבן אדם רשום כבר ואם לא הוא לא יכול לבצע את הקניה ומועבר לדף של התחברות
+            if (name) {
+                orderDetailsElement.innerHTML = `
+                    <p>תודה ${name}, קנייתך בוצעה בהצלחה!</p>
+                    <p>פרטי ההזמנה:</p>
+                    <ul>
+                        ${cart.map(item => `<li>${item.name} - כמות: ${item.quantity} - מחיר: ${item.price} שח</li>`).join('')}
+                    </ul>
+                    <p>סה"כ לתשלום: ${finalPrice} שח</p>
+                `;
+            } else {
+                orderDetailsElement.textContent = 'אנא התחבר כדי לראות את פרטי ההזמנה.';
+            }
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מוצרים</title>
+    <link href="./home.css" rel="stylesheet" />
+    <script src="./javascript.js"></script>
+    <script src="./home.js"></script>
+</head>
+<style>
+    .product-item {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        display: inline-block;
+        text-align: center;
+    }
+</style>
+<body dir="rtl">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="./home.html">דף הבית</a></li>
+                <li><a href="./cart.html">סל קניות</a></li>
+                <li><a href="register.html">הרשם</a></li>
+                <li><a href="./cont.html">התחבר</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <h2>המוצרים שלנו</h2>
+            <button id="sortByName">מיון לפי שם</button>
+            <button id="sortByPrice">מיון לפי מחיר</button>
+            <div id="productGrid" class="product-grid">
+                <!-- מוצרים מוצגים כאן -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 iRobot ישראל. כל הזכויות שמורות.</p>
+    </footer>
+
+    
+</body>
+</html>
